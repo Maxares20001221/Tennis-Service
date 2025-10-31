@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "Tennis Service API Tests",
+    "_postman_id": "d7a8390b-8a01-44ce-a9e8-b9eaa9f8b6c1",
+    "description": "API test collection for Tennis Service project (Players CRUD + Role-based visibility)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Players (Admin)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/players?isAdmin=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players"],
+          "query": [{ "key": "isAdmin", "value": "true" }]
+        }
+      }
+    },
+    {
+      "name": "Get All Players (User)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/players?isAdmin=false",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players"],
+          "query": [{ "key": "isAdmin", "value": "false" }]
+        }
+      }
+    },
+    {
+      "name": "Get Player By ID (Admin)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/players/1?isAdmin=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players", "1"],
+          "query": [{ "key": "isAdmin", "value": "true" }]
+        }
+      }
+    },
+    {
+      "name": "Add New Player",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Roger\",\n  \"lastName\": \"Federer\",\n  \"gender\": \"Male\",\n  \"birthDate\": \"1981-08-08\",\n  \"heightCm\": 185,\n  \"weightKg\": 85,\n  \"careerTitles\": 103,\n  \"careerWins\": 1250,\n  \"country\": \"Switzerland\",\n  \"ranking\": 1,\n  \"teamId\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/players",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players"]
+        }
+      }
+    },
+    {
+      "name": "Update Player",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Liam\",\n  \"lastName\": \"Smith\",\n  \"country\": \"USA\",\n  \"ranking\": 10\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/players/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Player",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/players/10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "players", "10"]
+        }
+      }
+    }
+  ]
+}
