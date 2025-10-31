@@ -45,3 +45,23 @@ Implements CRUD operations, role-based data visibility, dynamic age calculation,
 CREATE DATABASE tennis_service_db;
 USE tennis_service_db;
 -- Run your Tennis Service SQL Script.sql here
+```
+
+## 🔐 Configuration (application.yaml)
+``` java
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tennis_service_db
+    username: root
+    password: ENC(...)
+  jasypt:
+    encryptor:
+      password: tennis2025!
+```
+
+## 🧑‍💻 Run
+``` java
+mvn spring-boot:run
+```
+Then visit:
+👉 http://localhost:8080/v1/players
